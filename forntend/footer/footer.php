@@ -1,3 +1,5 @@
+<?php include 'database_conn.php' ?>
+
 <link rel="stylesheet" href="../css/footer.css?v=<?php echo time(); ?>">
 <footer>
     <div class="content">
@@ -44,7 +46,7 @@
         <ul class="box input-box">
           <li class="link_name">Feedback</li>
           <li><input type="text" placeholder="Leave The messages for us"></li>
-          <li><input type="button" value="Subscribe"></li>
+          <li><input type="button" value="Post"></li>
         </ul>
       </div>
     </div>

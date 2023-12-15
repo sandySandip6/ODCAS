@@ -43,6 +43,7 @@ $result = $conn->query($sql);
             <th>Contact</th>
             <th>Email</th>
             <th>Address</th>
+            <th>Remarks</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -64,6 +65,7 @@ $result = $conn->query($sql);
                         <td><?php echo $row['contact']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['address']; ?></td>
+                        <td><?php echo $row['remarks']; ?></td>
                         <td>
                         <a  href="edit_service_form.php?id=<?php echo $row['id'] ?>">Edit</a>&nbsp;
                         <a  href="delete_services_form.php?id=<?php echo $row['id']; ?>">Delete</a>

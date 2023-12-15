@@ -4,7 +4,7 @@ $first_name_err = $last_name_err = $age_err =
   $contact_err = $email_err = $address_err = $remarks_err = "";
 
 $first_name = $last_name = $age = $date_of_birth =
-  $gender = $relationship = $contact = $email = $address = "";
+  $gender = $relationship = $contact = $email = $address = $remarks = "";
 
 include '../database_conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -75,14 +75,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   if (empty($_POST["remarks"])) {
 
-    $address_err = "*Remarks Required";
+    $remarks_err = "*Remarks Required";
   } else {
 
     $remarks = input($_POST["remarks"]);
   }
 
   // To check contact exist or not
-  $checkExists = "SELECT * FROM ` ` WHERE contact = '$contact'";
+  $checkExists = "Select * From `_appointments`  WHERE contact = '$contact'";
   $result = mysqli_query($conn, $checkExists);
   $checkExistsRows = mysqli_num_rows($result);
 
@@ -91,15 +91,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Details already exist";
   } else {
 
-    if ($first_name_err == "" && $last_name_err == "" && $age_err == "" && $date_of_birth_err == "" && $gender_err == "" && $relationship_err == "" && $contact_err == "" && $email_err == "" && $address_err == "") {
+    if ($first_name_err == "" && $last_name_err == "" && $age_err == "" && $date_of_birth_err == "" && $gender_err == "" && $relationship_err == "" && $contact_err == "" && $email_err == "" && $address_err == "" && $remarks_err == "") {
 
-      $sql = "INSERT INTO `_appointments` (`first_name`,`last_name`,`age`,`date_of_birth`,`gender`,`relationship`,`contact`,`email`,`address`) VALUES('$first_name','$last_name','$age','$date_of_birth','$gender','$relationship','$contact','$email','$address')";
+      $sql = "INSERT INTO `_appointments` (`first_name`,`last_name`,`age`,`date_of_birth`,`gender`,`relationship`,`contact`,`email`,`address`,`remarks`) VALUES('$first_name','$last_name','$age','$date_of_birth','$gender','$relationship','$contact','$email','$address','$remarks')";
 
       $result = mysqli_query($conn, $sql);
 
       if ($result) {
 
-        header("location:homee.html");
+        header("location:homee.php");
 
       }
     } else {
@@ -155,9 +155,9 @@ function input($data)
 
       <label for="gender">Gender</label><br>
       <label for="male">Male</label>
-      <input type="radio" id="gender" name="gender">
+      <input type="radio" id="gender" name="gender" value ="M">
       <label for="female">Female</label>
-      <input type="radio" id="gender" name="gender"><br><br>
+      <input type="radio" id="gender" name="gender" value ="F"><br><br>
 
       <span class="error" style="color: red;">
         <?php echo $date_of_birth_err ?>
