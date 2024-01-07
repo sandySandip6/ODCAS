@@ -138,6 +138,7 @@ function input($data)
 </head>
 
 <body>
+  <!-- body starts form here -->
   <div class="patient_form">
     <form action="services_form.php" method="post">
       <div class="first-row">
