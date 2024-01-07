@@ -6,7 +6,7 @@ $usererr = $passerr= $cpasserr="";
 $username = $password= $cpassword="";
 
 //To connect with database 
-include 'database_conn.php';
+include '../database_conn.php';
 
 //To take input from user in post method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   //To check wether username exist or not
-  $checkExists = "Select * From `admins` where username='$username'";
+  $checkExists = "Select * From `appointment_details` where username='$username'";
   $result = mysqli_query($conn, $checkExists);
   $checkExistsRows = mysqli_num_rows($result);
 
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if($usererr==""&& $passerr =="" && $cpasserr==""){
         if($password==$cpassword ){
 
-      $sql = "INSERT INTO `admins` (`username`, `password`, `logged_date`) VALUES ( '$username', '$password', current_timestamp())";
+      $sql = "INSERT INTO `appointment_details` (`username`, `password`, `logged_date`) VALUES ( '$username', '$password', current_timestamp())";
       $result = mysqli_query($conn, $sql);
       
   
@@ -74,7 +74,7 @@ function input($data){
 
 <head>
   <title>SignUp Form</title>
-  <link rel="stylesheet" type="text/css" href="backend_css_file/login_signup.css">
+  <link rel="stylesheet" type="text/css" href="../backend_css_file/login_signup.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -90,7 +90,7 @@ function input($data){
   ?>
   <div class="container">
     <h2>SignUp Form</h2>
-    <form action="/dental_clinic/signup1.php" method="post">
+    <form action="/dental_clinic/signup.php" method="post">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" id="username" name="username"><br>
@@ -120,4 +120,4 @@ function input($data){
     </form>
   </div>
 </body>
-</html>
+</html>      

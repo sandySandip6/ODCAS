@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: montserrat;
+  }
+
+  .first-row{
+    
+    text-align: center;
+    margin: 20px;
+    font-size: 22px;
+
+   }
+  .first-row input{
+   
+  margin: 5px;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Bold';
+   }
+  .second-row{
+
+    text-align: center;
+    margin: 20px;
+    font-size: 22px;
+   }
+  .second-row input{
+   
+    margin: 5px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+  
+    }
+  .third-row{
+    
+
+      text-align: center;
+      margin: 20px;
+      font-size: 22px;
+  
+    }
+  .third-row input{
+     
+    margin: 5px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+  
+  
+    }

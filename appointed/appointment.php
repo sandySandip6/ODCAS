@@ -51,11 +51,11 @@ $result = $conn->query($sql);
         <tbody>
         <?php 
             if($result->num_rows >0){
-             $index =0;
+             $index = 1;
                 while($row = $result->fetch_assoc()){
                     ?>
                     <tr>
-                        <td><?php echo $index+1; ?></td>
+                        <td><?php echo $index++; ?></td>
                         <td><?php echo $row['first_name']; ?></td>
                         <td><?php echo $row['last_name']; ?></td>
                         <td><?php echo $row['age']; ?></td>

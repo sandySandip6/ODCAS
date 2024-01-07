@@ -11,12 +11,9 @@ function slider() {
     {
     x = x + 1;
     } 
-
   else 
     {
     x = 1;
     }
-
-
-  imgs.innerHTML = "<img src=" + "../images/" + images[x - 1] + ">";
+  imgs.innerHTML = "<img src=" + "../" + images[x - 1] + ">";
 }
