@@ -1,4 +1,3 @@
-<?php include 'database_conn.php' ?>
 
 <link rel="stylesheet" href="../css/footer.css?v=<?php echo time(); ?>">
 <footer>

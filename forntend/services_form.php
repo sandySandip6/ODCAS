@@ -100,15 +100,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($result) {
 
         header("location:homee.php");
-
+        echo"Appointment Done";
+        
       }
     } else {
 
       echo "Please Fill the Field";
-
     }
   }
 }
+
 function input($data)
 {
   $data = trim($data);
@@ -126,82 +127,97 @@ function input($data)
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Appointment Form</title>
+  <link rel="stylesheet" href="./css/service_form.css?v=<?php echo time(); ?>">
+  <script>
+    function showAlert() {
+      let message = "Form Registered Sucessfully!";
+
+      alert(message);
+    }
+  </script>
 </head>
 
 <body>
-  <div class="patient_form" style="width:50%;font-size: 25px;">
+  <div class="patient_form">
     <form action="services_form.php" method="post">
+      <div class="first-row">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Enter Your First Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="error" style="color: red;">
+          <?php echo $first_name_err ?>
+        </span>
 
-      <label for="first_name">First Name</label><br>
-      <input type="text" id="first_name" name="first_name" placeholder="Enter Your First Name"><br>
-      <span class="error" style="color: red;">
-        <?php echo $first_name_err ?>
-      </span>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Enter Your Last Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="error" style="color: red;">
+          <?php echo $last_name_err ?>
+        </span>
 
-      <label for="last_name">Last Name</label><br>
-      <input type="text" id="last_name" name="last_name" placeholder="Enter Your Last Name"><br>
-      <span class="error" style="color: red;">
-        <?php echo $last_name_err ?>
-      </span>
-
-      <label for="age">Your Age</label><br>
-      <input type="number" id="age" name="age" placeholder="Enter Your Age"><br>
-      <span class="error" style="color: red;">
-        <?php echo $age_err ?>
-      </span>
+        <label for="age">Your Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter Your Age">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="error" style="color: red;">
+          <?php echo $age_err ?>
+        </span>
+      </div>
       <hr>
-      <label for="date_of_birth">Date of Birth</label><br>
-      <input type="date" id="date_of_birth" name="date_of_birth" placeholder="Enter Your Date of Birth"><br>
+      <div class="second-row">
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" placeholder="Enter Your Date of Birth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-      <label for="gender">Gender</label><br>
-      <label for="male">Male</label>
-      <input type="radio" id="gender" name="gender" value ="M">
-      <label for="female">Female</label>
-      <input type="radio" id="gender" name="gender" value ="F"><br><br>
+        <label for="gender">Gender:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-      <span class="error" style="color: red;">
-        <?php echo $date_of_birth_err ?>
-      </span>
+        <label for="male">Male</label>
+        <input type="radio" id="gender" name="gender" value="M" >
+        <label for="female">Female</label>
+        <input type="radio" id="gender" name="gender" value="F" >
+
+        <span class="error" style="color: red;">
+          <?php echo $date_of_birth_err ?>
+        </span>
 
 
-      <label for="relationship">Relationship</label><br>
-      <select name="relationship" id="relationship">
-        <option>Relationship Status</option>
-        <option value="Married">Married</option>
-        <option value="Unmarried">Unmarried</option>
-      </select>
-      <br>
-      <span class="error" style="color: red;">
-        <?php echo $relationship_err ?>
-      </span>
+        <label for="relationship">Relationship:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="relationship" id="relationship">
+          <option>Relationship Status</option>
+          <option value="Married">Married</option>
+          <option value="Unmarried">Unmarried</option>
+        </select>
+        <br>
+        <span class="error" style="color: red;">
+          <?php echo $relationship_err ?>
+        </span>
+      </div>
       <hr>
-      <label for="contact">Contact</label><br>
-      <input type="tel" id="contact" name="contact" placeholder="Enter Your Phone Number"><br>
-      <span class="error" style="color: red;">
-        <?php echo $contact_err ?>
-      </span>
+      <div class="third-row">
+        <label for="contact">Contact:</label>
+        <input type="tel" id="contact" name="contact" placeholder="Enter Your Phone Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="error" style="color: red;">
+          <?php echo $contact_err ?>
+        </span>
 
-      <label for="email">Email</label><br>
-      <input type="email" id="email" name="email" placeholder="Enter Your Email"><br>
-      <span class="error" style="color: red;">
-        <?php echo $email_err ?>
-      </span>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter Your Email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="error" style="color: red;">
+          <?php echo $email_err ?>
+        </span>
 
-      <label for="address">Address</label><br>
-      <input type="text" id="address" name="address" placeholder="Enter Your Address"><br>
-      <br>
-      <span class="error" style="color: red;">
-        <?php echo $address_err ?>
-      </span>
-
-      <label for="remarks">Remarks</label><br>
-      <textarea name="remarks" id="remarks" cols="30" rows="5" placeholder="Say Something About Your Appointment..." >></textarea><br>
-      <br>
-      <span class="error" style="color: red;">
-        <?php echo $remarks_err ?>
-      </span>
-      
-      <button type="submit">Submit Form</button>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter Your Address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br>
+        <span class="error" style="color: red;">
+          <?php echo $address_err ?>
+        </span>
+      </div>
+      <hr>
+      <div>
+        <label for="remarks">Remarks</label><br>
+        <textarea name="remarks" id="remarks" cols="30" rows="5" placeholder="Say Something About Your Appointment...">></textarea><br>
+        <br>
+        <span class="error" style="color: red;">
+          <?php echo $remarks_err ?>
+        </span>
+      </div>
+      <button type="submit" onclick="showAlert()">Submit Form</button>
       <hr>
 
     </form>
