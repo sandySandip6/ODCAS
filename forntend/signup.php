@@ -74,7 +74,7 @@ function input($data){
 
 <head>
   <title>SignUp Form</title>
-  <link rel="stylesheet" type="text/css" href="backend_css_file/login_signup.css">
+  <link rel="stylesheet" type="text/css" href="../backend_css_file/login_signup.css?v=<?php echo time(); ?>">
 </head>
 
 <body>

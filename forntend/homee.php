@@ -22,7 +22,7 @@
 
               <div class="slider">
               <div id="img">
-                <img src="../all_photos/img6.jpg" >
+                <img src="./photos/img1.jpg" >
                 
               </div>
             </div>

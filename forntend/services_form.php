@@ -128,13 +128,13 @@ function input($data)
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Appointment Form</title>
   <link rel="stylesheet" href="./css/service_form.css?v=<?php echo time(); ?>">
-  <script>
+  <!-- <script>
     function showAlert() {
       let message = "Form Registered Sucessfully!";
 
       alert(message);
     }
-  </script>
+  </script> -->
 </head>
 
 <body>
